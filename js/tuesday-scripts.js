@@ -71,6 +71,7 @@ function addTransaction(type, ammount) {
 
 function publishData(transactions) {
   var runningBalance = 0;
+  $("#transactions").empty();
 
   for (var i = 0; i < transactions.length; i++){
     if (transactions[i].type === "Deposit") {
@@ -79,9 +80,10 @@ function publishData(transactions) {
     else {
       runningBalance -= transactions[i].ammount;
     }
-
-    $("#transactions").append(`<li>${transactions[i].type}: ${transactions[i].ammount} | Balance: ${runningBalance}`)
+    ;
+    $("#transactions").append(`<li>${transactions[i].type}: ${transactions[i].ammount} | Balance: ${runningBalance.toFixed(2)}`)
   }
+  $("#balance").text(runningBalance.toFixed(2));
 }
 
 transactions = [];
