@@ -106,7 +106,7 @@ $(document).ready(function() {
     })
 
     $(".extraInput").remove()
-    console.log(inputEmailAddresses, inputPhysAddresses)
+    
 
     var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, inputPhysAddresses, inputEmailAddresses);
     addressBook.addContact(newContact);
