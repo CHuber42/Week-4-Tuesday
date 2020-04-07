@@ -52,7 +52,7 @@ function displayContactDetails(anAddressBook) {
   var contactsList = $("ul#contacts");
   var htmlForContactInfo = new String;
   anAddressBook.contacts.forEach(contact => {
-    htmlForContactInfo += "<li id=" + contact.id + ">" + contact.firstName + " " + contact.lastName + "</li>";
+    htmlForContactInfo += "<li id=" + contact.id + ">" + contact.firstName + " " + contact.lastName + "</li>" ;
   });
   contactsList.html(htmlForContactInfo);
 }
@@ -74,6 +74,9 @@ function showContact(id) {
   $(".first-name").html(contact.firstName);
   $(".last-name").html(contact.lastName);
   $(".phone-number").html(contact.phoneNumber);
+  $(".phys-residence").html(contact.physicalAddresses);
+  $(".email-residence").html(contact.emailAddresses);
+
   var buttons = $("#buttons");
   buttons.empty();
   buttons.append("<button class='deleteButton' id=" + contact.id + ">Delete</button>");
@@ -96,10 +99,10 @@ $(document).ready(function() {
     $("input#new-last-name").val("");
     $("input#new-phone-number").val("");
     $("input.physAddressInput").each(function() {
-      inputPhysAddresses.push($(this).val())
+      inputPhysAddresses.push(" | " + $(this).val() + " | ")
     })
     $("input.emailInput").each(function() {
-      inputEmailAddresses.push($(this).val()) 
+      inputEmailAddresses.push(" | " + $(this).val() + " | ") 
     })
 
     $(".extraInput").remove()
