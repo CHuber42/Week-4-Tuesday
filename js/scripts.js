@@ -36,10 +36,12 @@ AddressBook.prototype.findContact = function (id) {
     return false;
   }
 
-function Contact (firstName, lastName, phoneNumber) {
+function Contact (firstName, lastName, phoneNumber, emails, physicalAdd) {
   this.firstName = firstName;
   this.lastName = lastName;
   this.phoneNumber = phoneNumber;
+  this.emailAddresses = emails;
+  this.physicalAddresses = physicalAdd;
 }
 
 Contact.prototype.fullName = function () {
@@ -87,14 +89,33 @@ $(document).ready(function() {
     var inputtedFirstName = $("input#new-first-name").val();
     var inputtedLastName = $("input#new-last-name").val();
     var inputtedPhoneNumber = $("input#new-phone-number").val();
+    var inputPhysAddresses = [];
+    var inputEmailAddresses = [];
 
     $("input#new-first-name").val("");
     $("input#new-last-name").val("");
     $("input#new-phone-number").val("");
+    $("input.physAddressInput").each(function() {
+      inputPhysAddresses.push($(this).val())
+    })
+    $("input.emailInput").each(function() {
+      inputEmailAddresses.push($(this).val()) 
+    })
 
-    var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
+    $(".extraInput").remove()
+    console.log(inputEmailAddresses, inputPhysAddresses)
+
+    var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, inputPhysAddresses, inputEmailAddresses);
     addressBook.addContact(newContact);
-    console.log(addressBook)
     displayContactDetails(addressBook);
+  })
+
+  $("button.addPhys").click(function(event) {
+    event.preventDefault();    
+    $("#physAddress").after("<br><label for='physAddress' class='extraInput'>Address</label>    <input type='text' id='physAddress' class='physAddressInput extraInput'>")
+  })
+  $("button.addEmail").click(function(event) {
+    event.preventDefault();    
+    $("#email").after("<br><label for='email' class='extraInput'>Email</label><input type='text' id='email' class='emailInput extraInput'>")
   })
 })
