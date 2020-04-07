@@ -9,7 +9,47 @@
   </head>
   <body>
     <h4>Movie Tickets & Bank Account</h4>
-    
+    <div id="container">
+      <div id="movie-tickets-project">
+        <h5>Movie Tickets</h5>
+        
+        <h5><strong>Movie tickets are priced as follows:<br><br>$10 for new movies / $7 for old movies<br>
+        $2 off all tickets for seniors (65+)<br>
+        50% off for Matinees!</strong></h5>
+
+        <label for="movies">Select a Movie to see</label>
+        <select id="movies">
+          <option value="old-movie">Old Movie</option>
+          <option value="new-movie">New Movie</option>
+        </select><br>
+
+        <label for="movieTime">Senior Ticket?</label>
+        <select id="age">
+          <option value="senior">65+</option>
+          <option value="normal">Below 65</option>
+        </select><br>
+       
+        <label for="movieTime">Select a Movie Time</label>
+        <select id="movieTime">
+          <option value="1">1:00</option>
+          <option value="3.5">3:30</option>
+          <option value="6">6:00</option>
+          <option value="8.5">8:30</option>
+        </select><br>
+
+        <button id="ticketButton">Add Ticket</button>
+        <button id="checkout">Checkout</button>
+        <p>That will be: $<span id="finalBill"></span></p>
+      </div>
+
+      
+      
+      <div id="bank-account-project">
+
+      </div>
+
+
+    </div>
   </body>
 </html> 
 
