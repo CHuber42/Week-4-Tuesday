@@ -1,3 +1,30 @@
-html, body, container {
+body, #container{
   height: 100%;
+  background-color: gray;
+  color:white  
+}
+
+
+
+#movie-tickets-project {
+  background-color: aquamarine;
+  height: 90%;
+  border: 1px solid rgb(237, 243, 237);
+  color:black;
+  float: right;
+  width: 50%;
+}
+
+#bank-account-project {
+  background-color: cadetblue;
+  height: 90%;
+  color:black
+}
+
+h5, h4, #balance {
+  font-size: x-large;
+}
+
+html {
+  height: 93vh;
 }
