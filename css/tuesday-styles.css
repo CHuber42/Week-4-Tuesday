@@ -21,7 +21,7 @@ body, #container{
   color:black
 }
 
-h5, h4, #balance {
+.balance-styles {
   font-size: x-large;
 }
 
