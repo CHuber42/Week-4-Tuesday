@@ -11,7 +11,7 @@
     <h4>Movie Tickets & Bank Account</h4>
     <div id="container">
       <div id="movie-tickets-project">
-        <h5>Movie Tickets</h5>
+        <h4>Movie Tickets</h4>
         
         <h5><strong>Movie tickets are priced as follows:<br><br>$10 for new movies / $7 for old movies<br>
         $2 off all tickets for seniors (65+)<br>
@@ -45,6 +45,20 @@
       
       
       <div id="bank-account-project">
+        <h4>Bank Account</h4>
+        <label for="transaction-type">Would you like to deposit or withdraw?</label>
+        <select id="transaction-type">
+          <option value="Deposit">Deposit</option>
+          <option value="Withdraw">Withdrawal</option>
+        </select><br> 
+        <label for="transaction-ammount">How much?</label>
+        <input type="text" id="transaction-ammount">
+
+        <button id="add-transaction">Add Transaction</button>
+
+        <ul id="transactions"></ul>
+
+        <p>Balance: $<span id="balance"></span></p>
 
       </div>
 

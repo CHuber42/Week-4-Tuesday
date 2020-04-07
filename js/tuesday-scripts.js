@@ -58,3 +58,39 @@ $(document).ready(function() {
 
   
 
+//###################################################
+
+function transaction(type, ammount) {
+  this.type = type;
+  this.ammount = ammount;
+}
+
+function addTransaction(type, ammount) {
+  transactions.push(new transaction(type, ammount));
+}
+
+function publishData(transactions) {
+  var runningBalance = 0;
+
+  for (var i = 0; i < transactions.length; i++){
+    if (transactions[i].type === "Deposit") {
+      runningBalance += transactions[i].ammount;
+    }
+    else {
+      runningBalance -= transactions[i].ammount;
+    }
+
+    $("#transactions").append(`<li>${transactions[i].type}: ${transactions[i].ammount} | Balance: ${runningBalance}`)
+  }
+}
+
+transactions = [];
+$(document).ready(function() {
+  $("#add-transaction").click(function(event) {
+    event.preventDefault();
+    var type = $("#transaction-type").val();
+    var ammount = parseFloat($("#transaction-ammount").val());
+    addTransaction(type, ammount);
+    publishData(transactions);
+  })
+})
